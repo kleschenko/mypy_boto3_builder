@@ -1,9 +1,9 @@
 """
-Structure for boto3-stubs module.
+Structure for mypy-boto3 module.
 """
 from typing import Iterable, List
 
-from mypy_boto3_builder.constants import MODULE_NAME, PYPI_NAME
+from mypy_boto3_builder.constants import LEGACY_MODULE_NAME, LEGACY_PYPI_NAME
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
@@ -16,8 +16,8 @@ class MasterPackage(Package):
 
     def __init__(
         self,
-        name: str = MODULE_NAME,
-        pypi_name: str = PYPI_NAME,
+        name: str = LEGACY_MODULE_NAME,
+        pypi_name: str = LEGACY_PYPI_NAME,
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
     ):

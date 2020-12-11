@@ -3,9 +3,9 @@ set -e
 
 ROOT_PATH=$(dirname $(dirname $0))
 OUTPUT_PATH=${ROOT_PATH}/mypy_boto3_output
-PACKAGES=${OUTPUT_PATH}/mypy_boto3_$1_package
+PACKAGES=${OUTPUT_PATH}/boto3_stubs_$1_package
 if [[ "$1" == "" ]]; then
-    PACKAGES=${OUTPUT_PATH}/*_package
+    PACKAGES=${OUTPUT_PATH}/boto3_stubs_*_package
 fi
 
 if [[ "$1" == "master" ]]; then

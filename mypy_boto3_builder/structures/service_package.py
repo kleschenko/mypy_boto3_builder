@@ -29,6 +29,7 @@ class ServicePackage(Package):
     ):
         super().__init__(name=name, pypi_name=pypi_name)
         self.service_name = service_name
+        self.legacy_name = service_name.legacy_module_name
         self.client = client
         self.service_resource = service_resource
         self.waiters = list(waiters)

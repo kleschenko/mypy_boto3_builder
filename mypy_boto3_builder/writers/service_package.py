@@ -19,15 +19,18 @@ def write_service_package(
 
     modified_paths: List[Path] = []
     package_path = setup_path / package.name
+    legacy_package_path = setup_path / package.legacy_name
 
     if setup_path.exists():
         shutil.rmtree(setup_path)
 
     setup_path.mkdir(exist_ok=True)
     package_path.mkdir(exist_ok=True)
+    legacy_package_path.mkdir(exist_ok=True)
 
     templates_path = Path("service")
     module_templates_path = templates_path / "service"
+    legacy_module_templates_path = templates_path / "legacy_service"
     file_paths: List[Tuple[Path, Path]] = []
     if generate_setup:
         file_paths.extend(
@@ -51,6 +54,10 @@ def write_service_package(
                 package_path / ServiceModuleName.client.file_name,
                 module_templates_path / ServiceModuleName.client.template_name,
             ),
+            (
+                legacy_package_path / "__init__.py",
+                legacy_module_templates_path / "__init__.pyi.jinja2",
+            ),
         ]
     )
     if package.service_resource:
@@ -63,6 +70,10 @@ def write_service_package(
                 (
                     package_path / ServiceModuleName.service_resource.file_name,
                     module_templates_path / ServiceModuleName.service_resource.template_name,
+                ),
+                (
+                    legacy_package_path / ServiceModuleName.service_resource.file_name,
+                    legacy_module_templates_path / ServiceModuleName.service_resource.template_name,
                 ),
             )
         )
@@ -77,6 +88,10 @@ def write_service_package(
                     package_path / ServiceModuleName.paginator.file_name,
                     module_templates_path / ServiceModuleName.paginator.template_name,
                 ),
+                (
+                    legacy_package_path / ServiceModuleName.paginator.file_name,
+                    legacy_module_templates_path / ServiceModuleName.paginator.template_name,
+                ),
             )
         )
     if package.waiters:
@@ -90,6 +105,10 @@ def write_service_package(
                     package_path / ServiceModuleName.waiter.file_name,
                     module_templates_path / ServiceModuleName.waiter.template_name,
                 ),
+                (
+                    legacy_package_path / ServiceModuleName.waiter.file_name,
+                    legacy_module_templates_path / ServiceModuleName.waiter.template_name,
+                ),
             )
         )
     if package.typed_dicts:
@@ -102,6 +121,10 @@ def write_service_package(
                 (
                     package_path / ServiceModuleName.type_defs.file_name,
                     module_templates_path / ServiceModuleName.type_defs.template_name,
+                ),
+                (
+                    legacy_package_path / ServiceModuleName.type_defs.file_name,
+                    legacy_module_templates_path / ServiceModuleName.type_defs.template_name,
                 ),
             )
         )

@@ -1,8 +1,8 @@
 # install `pip install boto3-stubs[s3]`
 import boto3
 from boto3.session import Session
-from mypy_boto3_s3.client import S3Client
-from mypy_boto3_s3.service_resource import Bucket, S3ServiceResource
+from boto3_stubs_s3.client import S3Client
+from boto3_stubs_s3.service_resource import Bucket, S3ServiceResource
 
 
 def s3_resource_example() -> None:

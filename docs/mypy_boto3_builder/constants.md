@@ -8,8 +8,8 @@ Constants and paths.
 
 #### Attributes
 
-- `MODULE_NAME` - Master module name: `'mypy_boto3'`
-- `PYPI_NAME` - PyPI module name: `'mypy-boto3'`
+- `LEGACY_MODULE_NAME` - Master module name: `'mypy_boto3'`
+- `LEGACY_PYPI_NAME` - PyPI module name: `'mypy-boto3'`
 - `DUMMY_REGION` - Random region to initialize services: `'us-west-2'`
 - `TEMPLATES_PATH` - Jinja2 templates for boto3-stubs: `Path(__file__).parent / 'templates'`
 - `BOTO3_STUBS_STATIC_PATH` - Static *.pyi files for boto3-stubs: `Path(__file__).parent / 'boto3_stubs_static'`

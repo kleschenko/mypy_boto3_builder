@@ -74,8 +74,8 @@ python -m mypy_boto3_builder mypy_boto3_output -s ec2 s3
 
 # Install custom `boto3-stubs` packages
 cd mypy_boto3_output
-pip install mypy_boto3_ec2_package
-pip install mypy_boto3_s3_package
+pip install boto3_stubs_ec2_package
+pip install boto3_stubs_s3_package
 pip install boto3_stubs_package
 ```
 

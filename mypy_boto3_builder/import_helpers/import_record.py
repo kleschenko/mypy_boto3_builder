@@ -3,7 +3,7 @@ Helper for Python import strings.
 """
 from typing import Any, Optional, Tuple
 
-from mypy_boto3_builder.constants import MODULE_NAME, TYPE_DEFS_NAME
+from mypy_boto3_builder.constants import LEGACY_MODULE_NAME, MODULE_NAME, TYPE_DEFS_NAME
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
@@ -140,6 +140,9 @@ class ImportRecord:
             return False
 
         if self.source.master_name.startswith(MODULE_NAME):
+            return True
+
+        if self.source.master_name.startswith(LEGACY_MODULE_NAME):
             return True
 
         if self.is_type_defs():

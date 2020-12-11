@@ -56,7 +56,7 @@ def empty() -> 'ImportRecord':
 
 ### ImportRecord().get_external
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L150)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L153)
 
 ```python
 def get_external(_module_name: str) -> 'ImportRecord':
@@ -98,7 +98,7 @@ Whether import is from local module.
 
 ### ImportRecord().is_standalone
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L158)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L161)
 
 ```python
 def is_standalone() -> bool:

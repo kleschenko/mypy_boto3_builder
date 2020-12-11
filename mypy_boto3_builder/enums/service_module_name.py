@@ -32,3 +32,10 @@ class ServiceModuleName(enum.Enum):
         Module template file name.
         """
         return f"{self.value}.pyi.jinja2"
+
+    @property
+    def module_name(self) -> str:
+        """
+        Python module name.
+        """
+        return self.value

@@ -8,7 +8,13 @@ from boto3 import __version__ as boto3_version
 from boto3.session import Session
 
 from mypy_boto3_builder.cli_parser import parse_args
-from mypy_boto3_builder.constants import BOTO3_STUBS_NAME, DUMMY_REGION, MODULE_NAME, PYPI_NAME
+from mypy_boto3_builder.constants import (
+    BOTO3_STUBS_NAME,
+    DUMMY_REGION,
+    LEGACY_MODULE_NAME,
+    LEGACY_PYPI_NAME,
+)
+from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
@@ -54,12 +60,13 @@ def main() -> None:
 
     build_version = args.build_version or boto3_version
     JinjaManager.update_globals(
-        master_pypi_name=PYPI_NAME,
-        master_module_name=MODULE_NAME,
+        master_pypi_name=LEGACY_PYPI_NAME,
+        master_module_name=LEGACY_MODULE_NAME,
         boto3_stubs_name=BOTO3_STUBS_NAME,
         boto3_version=boto3_version,
         build_version=build_version,
         builder_version=args.builder_version,
+        service_module_name=ServiceModuleName,
     )
 
     logger.info(f"Bulding version {build_version}")
@@ -78,7 +85,7 @@ def main() -> None:
 
     if not args.skip_master:
         if not args.installed:
-            logger.info(f"Generating {MODULE_NAME} module")
+            logger.info(f"Generating {LEGACY_MODULE_NAME} module")
             process_master(
                 session,
                 args.output_path,

@@ -4,10 +4,12 @@ Constants and paths.
 from pathlib import Path
 
 # Master module name
-MODULE_NAME = "mypy_boto3"
+LEGACY_MODULE_NAME = "mypy_boto3"
+MODULE_NAME = "boto3_stubs"
 
 # PyPI module name
-PYPI_NAME = "mypy-boto3"
+LEGACY_PYPI_NAME = "mypy-boto3"
+PYPI_NAME = "boto3-stubs"
 
 # Random region to initialize services
 DUMMY_REGION = "us-west-2"

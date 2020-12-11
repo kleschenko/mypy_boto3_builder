@@ -3,7 +3,7 @@ Description for boto3 service.
 """
 from typing import Tuple
 
-from mypy_boto3_builder.constants import MODULE_NAME, PYPI_NAME
+from mypy_boto3_builder.constants import LEGACY_MODULE_NAME, MODULE_NAME, PYPI_NAME
 
 __all__ = (
     "ServiceName",
@@ -64,6 +64,13 @@ class ServiceName:
         Package name for given service.
         """
         return f"{MODULE_NAME}_{self.underscore_name}"
+
+    @property
+    def legacy_module_name(self) -> str:
+        """
+        Legacy package name for given service.
+        """
+        return f"{LEGACY_MODULE_NAME}_{self.underscore_name}"
 
     @property
     def pypi_name(self) -> str:

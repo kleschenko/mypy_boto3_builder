@@ -2,7 +2,7 @@
 
 > Auto-generated documentation for [mypy_boto3_builder.structures.master_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/master_package.py) module.
 
-Structure for boto3-stubs module.
+Structure for mypy-boto3 module.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / MasterPackage
     - [MasterPackage](#masterpackage)
@@ -15,8 +15,8 @@ Structure for boto3-stubs module.
 ```python
 class MasterPackage(Package):
     def __init__(
-        name: str = MODULE_NAME,
-        pypi_name: str = PYPI_NAME,
+        name: str = LEGACY_MODULE_NAME,
+        pypi_name: str = LEGACY_PYPI_NAME,
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
     ):
@@ -26,8 +26,8 @@ Structure for mypy-boto3 package.
 
 #### See also
 
-- [MODULE_NAME](../constants.md#module_name)
-- [PYPI_NAME](../constants.md#pypi_name)
+- [LEGACY_MODULE_NAME](../constants.md#legacy_module_name)
+- [LEGACY_PYPI_NAME](../constants.md#legacy_pypi_name)
 - [Package](package.md#package)
 
 ### MasterPackage().essential_service_names
